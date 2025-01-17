@@ -8,7 +8,7 @@ def print_board(board):
 
 def player_turn(board, symbol):
     while(True):
-        player_move = input("pleas pick your move between 1-9 ?")
+        player_move = input("please pick your move between 1-9 ?")
 
         if valid_move(board, player_move):
             place_the_move(board, player_move, symbol)
@@ -109,7 +109,7 @@ def ai_turn(board, symbol):
 
 
 def best_move(board, symbol):
-    best_score = -float('inf') if symbol == 'X' else float('inf')
+    best_score = -float('inf') if symbol == 'X' else float('inf') 
     move = None
     for i in range(0,3):
         for j in range(0,3):
@@ -191,10 +191,10 @@ while(True):
         score = game_score(board)
         print_board(board)
         if score == 1:
-            print("AI Won")
+            print("PLayer Won")
             break
         elif score == -1:
-            print("Player Won")
+            print("AI Won")
             break
         elif score == 0:
             print("Tie")
@@ -208,10 +208,10 @@ while(True):
         score = game_score(board)
         print_board(board)
         if score == 1:
-            print("Player Won")
+            print("AI Won")
             break
         elif score == -1:
-            print("AI Won")
+            print("Player Won")
             break
         elif score == 0:
             print("Tie")
@@ -222,10 +222,10 @@ while(True):
         score = game_score(board)
         print_board(board)
         if score == 1:
-            print("Player Won")
+            print("AI Won")
             break
         elif score == -1:
-            print("AI Won")
+            print("Player Won")
             break
         elif score == 0:
             print("Tie")
