@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 
-# ---------- Logic Functions ----------
+
 def check_winner(b, s):
     return any([
         b[0][0] == b[0][1] == b[0][2] == s,
@@ -14,8 +14,10 @@ def check_winner(b, s):
         b[0][2] == b[1][1] == b[2][0] == s
     ])
 
+
 def is_draw(b):
     return all(cell != ' ' for row in b for cell in row)
+
 
 def evaluate(b):
     if check_winner(b, 'X'):
@@ -23,6 +25,7 @@ def evaluate(b):
     elif check_winner(b, 'O'):
         return -1
     return 0
+
 
 def minimax(board, depth, is_maximizing, alpha, beta):
     score = evaluate(board)
@@ -56,6 +59,7 @@ def minimax(board, depth, is_maximizing, alpha, beta):
                         break
         return best
 
+
 def best_move(board):
     best_val = -float('inf')
     move = (-1, -1)
@@ -70,7 +74,7 @@ def best_move(board):
                     best_val = move_val
     return move
 
-# ---------- GUI Functions ----------
+
 def on_click(i, j):
     global board, buttons, stats
 
@@ -111,6 +115,7 @@ def on_click(i, j):
 def update_stats():
     stats_label.config(text=f"Wins: {stats['Wins']}   Losses: {stats['Losses']}   Ties: {stats['Ties']}")
 
+
 def reset_game():
     global board, buttons
     board = [[' ' for _ in range(3)] for _ in range(3)]
@@ -118,7 +123,9 @@ def reset_game():
         for j in range(3):
             buttons[i][j].config(text=' ', state='normal')
 
-# ---------- Main GUI Setup ----------
+
+
+
 root = tk.Tk()
 root.title("Tic Tac Toe with AI")
 root.geometry("420x540")
